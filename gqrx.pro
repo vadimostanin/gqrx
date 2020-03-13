@@ -140,6 +140,8 @@ SOURCES += \
     src/qtgui/nb_options.cpp \
     src/qtgui/plotter.cpp \
     src/qtgui/qtcolorpicker.cpp \
+    src/receivers/RtlSdrSource.cpp \
+    src/receivers/SDRSourceThread.cpp \
     src/receivers/receiver_base.cpp
 
 HEADERS += \
@@ -198,6 +200,7 @@ HEADERS += \
     src/qtgui/nb_options.h \
     src/qtgui/plotter.h \
     src/qtgui/qtcolorpicker.h \
+    src/receivers/SDRSourceThread.h \
     src/receivers/receiver_base.h
 
 FORMS += \
@@ -288,7 +291,7 @@ INCPATH += src/
 
 unix:!macx {
     LIBS += -lboost_system$$BOOST_SUFFIX -lboost_program_options$$BOOST_SUFFIX
-    LIBS += -lrt  # need to include on some distros
+    LIBS += -lrt -lrtlsdr  # need to include on some distros
 }
 
 macx {

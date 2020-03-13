@@ -5,6 +5,8 @@ add_source_files(SRCS_LIST
 #	nbrx.h
 	receiver_base.cpp
 	receiver_base.h
+	RtlSdrSource.cpp
+	RtlSdrSource.h
 #	wfmrx.cpp
 #	wfmrx.h
 )

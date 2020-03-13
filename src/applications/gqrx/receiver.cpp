@@ -28,8 +28,8 @@
 
 #include <iostream>
 
-#include <gnuradio/prefs.h>
-#include <gnuradio/top_block.h>
+//#include <gnuradio/prefs.h>
+//#include <gnuradio/top_block.h>
 #include <osmosdr/source.h>
 #include <osmosdr/ranges.h>
 
@@ -40,6 +40,8 @@
 #include "dsp/rx_fft.h"
 //#include "receivers/nbrx.h"
 //#include "receivers/wfmrx.h"
+
+#include "receivers/SDRSourceThread.h"
 
 #ifdef WITH_PULSEAUDIO
 #include "pulseaudio/pa_sink.h"
@@ -75,7 +77,7 @@ receiver::receiver(const std::string input_device,
       d_iq_balance(false),
       d_demod(RX_DEMOD_OFF)
 {
-
+    SDRSourceThread a(0);
 //    tb = gr::make_top_block("gqrx");
 
 //    if (input_device.empty())

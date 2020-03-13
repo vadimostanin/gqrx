@@ -34,6 +34,8 @@
 #include <osmosdr/source.h>
 #include <osmosdr/ranges.h>
 
+#include "receivers/RtlSdrSource.h"
+
 #ifdef WITH_PULSEAUDIO
 #include "pulseaudio/pa_device_list.h"
 #elif WITH_PORTAUDIO
@@ -236,23 +238,26 @@ void CIoConfig::getDeviceList(std::map<QString, QVariant> &devList)
 
     // Get list of input devices discovered by gr-osmosdr and store them in
     // the device list together with the device descriptor strings
-    osmosdr::devices_t devs = osmosdr::device::find();
+//    auto devs = osmosdr::device::find();
+    auto devs = RtlSdrSource::get_device_names();
 
     qDebug() << __FUNCTION__ << ": Available input devices:";
-    BOOST_FOREACH(osmosdr::device_t &dev, devs)
+    BOOST_FOREACH(auto &dev, devs)
     {
-        if (dev.count("label"))
-        {
-            devlabel = QString(dev["label"].c_str());
-            dev.erase("label");
-        }
-        else
-        {
-            devlabel = "Unknown";
-        }
+//        if (dev.count("label"))
+//        {
+//            devlabel = QString(dev["label"].c_str());
+//            dev.erase("label");
+//        }
+//        else
+//        {
+//            devlabel = "Unknown";
+//        }
 
-        devstr = QString(dev.to_string().c_str());
-        devList.insert(std::pair<QString, QVariant>(devlabel, devstr));
+
+//        devstr = QString(dev.to_string().c_str());
+        devstr = QString(dev.c_str());
+        devList.insert(std::pair<QString, QVariant>(devstr, devstr));
         qDebug() << "  " << devlabel;
     }
 }

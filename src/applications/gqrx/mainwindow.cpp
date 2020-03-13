@@ -1263,7 +1263,7 @@ void MainWindow::meterTimeout()
 /** Baseband FFT plot timeout. */
 void MainWindow::iqFftTimeout()
 {
-    unsigned int    fftsize;
+    unsigned int    fftsize = 0;
     unsigned int    i;
     float           pwr;
     float           pwr_scale;
@@ -1310,7 +1310,7 @@ void MainWindow::iqFftTimeout()
 /** Audio FFT plot timeout. */
 void MainWindow::audioFftTimeout()
 {
-    unsigned int    fftsize;
+    unsigned int    fftsize = 0;
     unsigned int    i;
     float           pwr;
     float           pwr_scale;
@@ -1745,7 +1745,7 @@ void MainWindow::on_actionDSP_triggered(bool checked)
             ui->plotter->setRunningState(false);
         }
 
-        audio_fft_timer->start(40);
+//        audio_fft_timer->start(40);
 
         /* update menu text and button tooltip */
         ui->actionDSP->setToolTip(tr("Stop DSP processing"));
