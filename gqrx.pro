@@ -111,6 +111,7 @@ SOURCES += \
     src/dsp/rx_demod_am.cpp \
     src/dsp/rx_demod_fm.cpp \
     src/dsp/rx_fft.cpp \
+    src/dsp/rx_mod_recognition.cpp \
     src/dsp/rx_filter.cpp \
     src/dsp/rx_meter.cpp \
     src/dsp/rx_noise_blanker_cc.cpp \
@@ -139,9 +140,7 @@ SOURCES += \
     src/qtgui/nb_options.cpp \
     src/qtgui/plotter.cpp \
     src/qtgui/qtcolorpicker.cpp \
-    src/receivers/nbrx.cpp \
-    src/receivers/receiver_base.cpp \
-    src/receivers/wfmrx.cpp
+    src/receivers/receiver_base.cpp
 
 HEADERS += \
     src/applications/gqrx/gqrx.h \
@@ -169,6 +168,7 @@ HEADERS += \
     src/dsp/rx_demod_am.h \
     src/dsp/rx_demod_fm.h \
     src/dsp/rx_fft.h \
+    src/dsp/rx_mod_recognition.h \
     src/dsp/rx_filter.h \
     src/dsp/rx_meter.h \
     src/dsp/rx_noise_blanker_cc.h \
@@ -198,9 +198,7 @@ HEADERS += \
     src/qtgui/nb_options.h \
     src/qtgui/plotter.h \
     src/qtgui/qtcolorpicker.h \
-    src/receivers/nbrx.h \
-    src/receivers/receiver_base.h \
-    src/receivers/wfmrx.h
+    src/receivers/receiver_base.h
 
 FORMS += \
     src/applications/gqrx/mainwindow.ui \

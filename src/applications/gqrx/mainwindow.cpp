@@ -402,7 +402,7 @@ MainWindow::~MainWindow()
 bool MainWindow::loadConfig(const QString cfgfile, bool check_crash,
                             bool restore_mainwindow)
 {
-    double      actual_rate;
+    uint64_t      actual_rate;
     qint64      int64_val;
     int         int_val;
     bool        bool_val;
@@ -1040,7 +1040,7 @@ void MainWindow::selectDemod(int mode_idx)
         break;
 
     case DockRxOpt::MODE_NFM:
-        ui->plotter->setDemodRanges(-40000, -1000, 1000, 40000, true);
+        ui->plotter->setDemodRanges(-40000, -100, 100, 40000, true);
         uiDockAudio->setFftRange(0, 5000);
         rx->set_demod(receiver::RX_DEMOD_NFM);
         rx->set_fm_maxdev(uiDockRxOpt->currentMaxdev());

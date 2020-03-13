@@ -49,6 +49,7 @@
 #include "dsp/rx_fft.h"
 #include "dsp/sniffer_f.h"
 #include "dsp/resampler_xx.h"
+#include "dsp/rx_mod_recognition.h"
 #include "interfaces/udp_sink_f.h"
 #include "receivers/receiver_base.h"
 
@@ -122,8 +123,8 @@ public:
     std::vector<std::string> get_antennas(void) const;
     void        set_antenna(const std::string &antenna);
 
-    double      set_input_rate(double rate);
-    double      get_input_rate(void) const { return d_input_rate; }
+    uint64_t      set_input_rate(uint64_t rate);
+    uint64_t      get_input_rate(void) const { return d_input_rate; }
 
     unsigned int    set_input_decim(unsigned int decim);
     unsigned int    get_input_decim(void) const { return d_decim; }
@@ -230,7 +231,7 @@ private:
 
 private:
     bool        d_running;          /*!< Whether receiver is running or not. */
-    double      d_input_rate;       /*!< Input sample rate. */
+    uint64_t      d_input_rate;       /*!< Input sample rate. */
     double      d_quad_rate;        /*!< Quadrature rate (input_rate / decim) */
     double      d_audio_rate;       /*!< Audio output rate. */
     unsigned int    d_decim;        /*!< input decimation. */
@@ -260,6 +261,8 @@ private:
 
     rx_fft_c_sptr             iq_fft;     /*!< Baseband FFT block. */
     rx_fft_f_sptr             audio_fft;  /*!< Audio FFT block. */
+
+    rx_mod_recogn_sptr        mod_recogn; /*!< Modulation recognition block. >*/
 
     gr::blocks::rotator_cc::sptr rot;     /*!< Rotator used when only shifting frequency */
 

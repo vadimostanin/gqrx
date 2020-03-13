@@ -71,8 +71,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>284</width>
-         <height>497</height>
+         <width>302</width>
+         <height>483</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -278,7 +278,7 @@
              <number>1</number>
             </property>
             <property name="maximum">
-             <number>50</number>
+             <number>150</number>
             </property>
             <property name="pageStep">
              <number>5</number>
