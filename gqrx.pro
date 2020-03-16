@@ -107,6 +107,7 @@ SOURCES += \
     src/dsp/rds/decoder_impl.cc \
     src/dsp/rds/parser_impl.cc \
     src/dsp/resampler_xx.cpp \
+    src/dsp/rtlsdrsource.cpp \
     src/dsp/rx_agc_xx.cpp \
     src/dsp/rx_demod_am.cpp \
     src/dsp/rx_demod_fm.cpp \
@@ -165,6 +166,7 @@ HEADERS += \
     src/dsp/rds/constants.h \
     src/dsp/rds/tmc_events.h \
     src/dsp/resampler_xx.h \
+    src/dsp/rtlsdrsource.h \
     src/dsp/rx_agc_xx.h \
     src/dsp/rx_demod_am.h \
     src/dsp/rx_demod_fm.h \

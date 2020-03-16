@@ -40,6 +40,7 @@
 #include "dsp/rx_fft.h"
 #include "receivers/nbrx.h"
 #include "receivers/wfmrx.h"
+#include "dsp/rtlsdrsource.h"
 
 #ifdef WITH_PULSEAUDIO
 #include "pulseaudio/pa_sink.h"
@@ -86,6 +87,7 @@ receiver::receiver(const std::string input_device,
     {
         input_devstr = input_device;
         src = osmosdr::source::make(input_device);
+//        src = make_rtlsdrsource(0);
     }
 
     // input decimator
